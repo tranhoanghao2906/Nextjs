@@ -2,6 +2,34 @@ import { getProductDetailByIDAction } from "@/app/actions/services/productAPI";
 import Image from "next/image";
 import React from "react";
 
+export async function generateMetadata(props) {
+    const { id } = await props.params;
+    const product = await getProductDetailByIDAction(id);
+
+    return {
+        title: `${product.name} | Shoe Shop - Cửa hàng giày chất lượng cao`,
+        description: product.description,
+        openGraph: {
+            title: `${product.name} | Shoe Shop - Cửa hàng giày chất lượng cao`,
+            description: product.description,
+            images: [
+                {
+                    url: product.image,
+                    width: 800,
+                    height: 600,
+                    alt: product.name,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${product.name} | Shoe Shop - Cửa hàng giày chất lượng cao`,
+            description: product.description,
+            images: [product.image],
+        },
+    };
+}
+
 const Detail = async (props) => {
     console.log("props: ", props);
     // props.params.id
@@ -36,4 +64,3 @@ const Detail = async (props) => {
 };
 
 export default Detail;
- 
