@@ -6,6 +6,49 @@ import Link from "next/link";
 import { isValidImage } from "./utils/utils";
 // import { useEffect, useState } from "react";
 
+export const metadata = {
+    title: "Shoe Shop - Cửa hàng giày chất lượng cao",
+    description:
+        "Khám phá bộ sưu tập giày thời trang mới nhất với giá cả phải chăng. Đa dạng mẫu mã, chất lượng đảm bảo.",
+    keywords: ["giày", "shoe shop", "giày thời trang", "giày nam", "giày nữ"],
+    openGraph: {
+        title: "Shoe Shop - Cửa hàng giày chất lượng cao",
+        description:
+            "Khám phá bộ sưu tập giày thời trang mới nhất với giá cả phải chăng",
+        type: "website",
+        url: "https://nextjs-one-phi-ocr57untgk.vercel.app/",
+        images: [
+            {
+                url: "https://apistore.cybersoft.edu.vn/images/vans-black-black.png",
+                width: 1200,
+                height: 630,
+                alt: "Shoe Shop",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Shoe Shop - Cửa hàng giày chất lượng cao",
+        description: "Khám phá bộ sưu tập giày thời trang mới nhất",
+        images: ["/twitter-image.jpg"],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    alternates: {
+        canonical: "https://yourwebsite.com",
+    },
+};
+
+
 const getAllProduct = async () => {
     const res = await fetch("http://localhost:3000/api/product");
     const data = await res.json();
