@@ -1,10 +1,12 @@
-import { getProductDetailByIDAction } from "@/app/actions/services/productAPI";
+// "use client";
+// import { getProductDetailByIDAction } from "@/app/actions/services/productAPI";
+import { getAllProductDetailByID } from "@/app/actions/services/productAPI";
 import Image from "next/image";
 import React from "react";
 
 export async function generateMetadata(props) {
     const { id } = await props.params;
-    const product = await getProductDetailByIDAction(id);
+    const product = await getAllProductDetailByID(id);
 
     return {
         title: `${product.name} | Shoe Shop - Cửa hàng giày chất lượng cao`,
@@ -37,7 +39,7 @@ const Detail = async (props) => {
     console.log("params id: ", id);
 
     // call api bằng action và render data lên giao diện
-    const product = await getProductDetailByIDAction(id);
+    const product = await getAllProductDetailByID(id);
 
     return (
         <div className="container mx-auto">
