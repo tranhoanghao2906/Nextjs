@@ -1,7 +1,9 @@
 // server action là các hàm xử lý trên server(nơi chứa source nextjs)
 
 export const getAllProductAction = async () => {
-    const res = await fetch("https://apistore.cybersoft.edu.vn/api/product");
+    const res = await fetch("https://apistore.cybersoft.edu.vn/api/product",{
+        next: {revalidate: 10},
+    });
     const data = await res.json();
 
     return data.content;
