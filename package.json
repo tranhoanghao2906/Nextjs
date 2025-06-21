@@ -7,11 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "flowbite-react patch"
+    "postinstall": "flowbite-react patch",
+    "postbuild": "next-sitemap"
+    
   },
   "dependencies": {
     "flowbite-react": "^0.11.8",
+    "install": "^0.13.0",
     "next": "15.3.3",
+    "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
